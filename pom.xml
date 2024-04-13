@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.api</groupId>
-    <artifactId>PersonAdress_OneToOne_SpringBoot3</artifactId>
+    <artifactId>PersonAddress_OneToOne_SpringBoot3</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>PersonAdress_OneToOne_SpringBoot3.2</name>
     <description>PersonAdress_OneToOne_SpringBoot3.2</description>
