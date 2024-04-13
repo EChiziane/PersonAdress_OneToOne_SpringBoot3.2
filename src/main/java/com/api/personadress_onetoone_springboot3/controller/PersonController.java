@@ -9,6 +9,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.UUID;
+
 
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -37,6 +39,24 @@ public class PersonController {
     @GetMapping
     public ResponseEntity GetAllPersons() {
         return ResponseEntity.status(HttpStatus.OK).body(personService.getAllPersons());
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity GetPersonById(@PathVariable UUID id) {
+        if (personService.getPersonById(id).isEmpty()) {
+
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No person found with id " + id);
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(personService.getPersonById(id).get());
+    }
+
+    @DeleteMapping("/{}")
+    public ResponseEntity DeletePersonById(@PathVariable UUID id) {
+        if (personService.getPersonById(id).isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No person found with id " + id);
+        }
+        personService.deletePersonById(id);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).body("Deleted person with id " + id);
     }
 
 }
