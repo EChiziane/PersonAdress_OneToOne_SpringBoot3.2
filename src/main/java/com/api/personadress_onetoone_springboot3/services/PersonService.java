@@ -2,11 +2,13 @@ package com.api.personadress_onetoone_springboot3.services;
 
 import com.api.personadress_onetoone_springboot3.model.PersonModel;
 import com.api.personadress_onetoone_springboot3.repository.PersonRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+@Service
 public class PersonService {
     final private PersonRepository personRepository;
 
